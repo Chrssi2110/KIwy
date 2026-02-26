@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>KIWY - Feedback</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <script src="shared.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&amp;family=Poppins:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+    <style>
+        html {
+            overflow-y: scroll;
+            scrollbar-gutter: stable;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-gray-800 dark:text-gray-100 font-body transition-colors duration-300 min-h-screen flex flex-col">
+
+    <div id="assistant-bar"></div>
+    <div id="main-nav"></div>
+
+    <!-- Main Content -->
+    <main class="flex-grow max-w-4xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Header -->
+        <header class="mb-8 text-center">
+            <div
+                class="w-16 h-16 bg-gradient-to-br from-secondary to-[#a65d1a] rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                <span class="material-icons-outlined text-white text-3xl">rate_review</span>
+            </div>
+            <h1 class="text-3xl font-display font-bold text-gray-900 dark:text-white">Feedback geben</h1>
+            <p class="mt-2 text-lg text-gray-600 dark:text-gray-300">Dein Feedback hilft uns, das Onboarding für
+                zukünftige Kiwis zu verbessern.</p>
+        </header>
+
+        <!-- Feedback Type Selection -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <button id="btn-onboarding" onclick="selectType('onboarding')"
+                class="feedback-type-btn active p-6 bg-surface-light dark:bg-surface-dark rounded-2xl shadow-sm border-2 border-primary text-left hover:border-primary transition-all group">
+                <div class="flex items-start gap-4">
+                    <div
+                        class="w-12 h-12 rounded-xl bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary dark:text-orange-400 group-hover:scale-110 transition-transform">
+                        <span class="material-icons-outlined text-2xl">rocket_launch</span>
+                    </div>
+                    <div>
+                        <h3 class="font-display font-semibold text-gray-900 dark:text-white">Onboarding-Feedback</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Wie läuft dein Start? Teile deine
+                            Erfahrungen mit dem Onboarding-Prozess.</p>
+                    </div>
+                </div>
+            </button>
+
+            <button id="btn-app" onclick="selectType('app')"
+                class="feedback-type-btn p-6 bg-surface-light dark:bg-surface-dark rounded-2xl shadow-sm border-2 border-gray-200 dark:border-gray-700 text-left hover:border-primary transition-all group">
+                <div class="flex items-start gap-4">
+                    <div
+                        class="w-12 h-12 rounded-xl bg-blue-100 dark:bg-blue-900/20 flex items-center justify-center text-blue-600 dark:text-blue-400 group-hover:scale-110 transition-transform">
+                        <span class="material-icons-outlined text-2xl">smartphone</span>
+                    </div>
+                    <div>
+                        <h3 class="font-display font-semibold text-gray-900 dark:text-white">KIWY App-Feedback</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Ideen, Bugs oder
+                            Verbesserungsvorschläge für diese App?</p>
+                    </div>
+                </div>
+            </button>
+        </div>
+
+        <!-- Feedback Form -->
+        <div
+            class="bg-surface-light dark:bg-surface-dark rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 overflow-hidden">
+
+            <!-- Onboarding Feedback Form -->
+            <div id="form-onboarding" class="p-6 space-y-6">
+                <div>
+                    <h2
+                        class="text-lg font-display font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                        <span class="material-icons-outlined text-primary">emoji_emotions</span>
+                        Wie zufrieden bist du mit deinem Onboarding?
+                    </h2>
+                    <div class="flex justify-center gap-4">
+                        <button onclick="selectRating(1)"
+                            class="rating-btn flex flex-col items-center p-4 rounded-xl border-2 border-gray-200 dark:border-gray-700 hover:border-primary transition-all">
+                            <span class="text-4xl mb-2">😟</span>
+                            <span class="text-xs text-gray-500">Sehr unzufrieden</span>
+                        </button>
+                        <button onclick="selectRating(2)"
+                            class="rating-btn flex flex-col items-center p-4 rounded-xl border-2 border-gray-200 dark:border-gray-700 hover:border-primary transition-all">
+                            <span class="text-4xl mb-2">😕</span>
+                            <span class="text-xs text-gray-500">Unzufrieden</span>
+                        </button>
+                        <button onclick="selectRating(3)"
+                            class="rating-btn flex flex-col items-center p-4 rounded-xl border-2 border-gray-200 dark:border-gray-700 hover:border-primary transition-all">
+                            <span class="text-4xl mb-2">😐</span>
+                            <span class="text-xs text-gray-500">Neutral</span>
+                        </button>
+                        <button onclick="selectRating(4)"
+                            class="rating-btn flex flex-col items-center p-4 rounded-xl border-2 border-gray-200 dark:border-gray-700 hover:border-primary transition-all">
+                            <span class="text-4xl mb-2">🙂</span>
+                            <span class="text-xs text-gray-500">Zufrieden</span>
+                        </button>
+                        <button onclick="selectRating(5)"
+                            class="rating-btn flex flex-col items-center p-4 rounded-xl border-2 border-gray-200 dark:border-gray-700 hover:border-primary transition-all">
+                            <span class="text-4xl mb-2">🥝</span>
+                            <span class="text-xs text-gray-500">Sehr zufrieden</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Was läuft
+                            gut?</label>
+                        <textarea rows="4"
+                            class="w-full px-4 py-3 border border-gray-200 dark:border-gray-700 rounded-xl bg-white dark:bg-[#2A2520] focus:ring-primary focus:border-primary dark:text-white text-sm"
+                            placeholder="Erzähl uns, was dir besonders gefällt..."></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Was können wir
+                            verbessern?</label>
+                        <textarea rows="4"
+                            class="w-full px-4 py-3 border border-gray-200 dark:border-gray-700 rounded-xl bg-white dark:bg-[#2A2520] focus:ring-primary focus:border-primary dark:text-white text-sm"
+                            placeholder="Deine Verbesserungsvorschläge..."></textarea>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Welche Themen haben
+                        dir gefehlt?</label>
+                    <div class="flex flex-wrap gap-2">
+                        <button
+                            class="topic-tag px-3 py-1.5 rounded-full text-sm border border-gray-200 dark:border-gray-700 hover:bg-primary hover:text-white hover:border-primary transition-all">IT-Setup</button>
+                        <button
+                            class="topic-tag px-3 py-1.5 rounded-full text-sm border border-gray-200 dark:border-gray-700 hover:bg-primary hover:text-white hover:border-primary transition-all">Team-Kennenlernen</button>
+                        <button
+                            class="topic-tag px-3 py-1.5 rounded-full text-sm border border-gray-200 dark:border-gray-700 hover:bg-primary hover:text-white hover:border-primary transition-all">Unternehmenskultur</button>
+                        <button
+                            class="topic-tag px-3 py-1.5 rounded-full text-sm border border-gray-200 dark:border-gray-700 hover:bg-primary hover:text-white hover:border-primary transition-all">Tools
+                            & Prozesse</button>
+                        <button
+                            class="topic-tag px-3 py-1.5 rounded-full text-sm border border-gray-200 dark:border-gray-700 hover:bg-primary hover:text-white hover:border-primary transition-all">Benefits</button>
+                        <button
+                            class="topic-tag px-3 py-1.5 rounded-full text-sm border border-gray-200 dark:border-gray-700 hover:bg-primary hover:text-white hover:border-primary transition-all">Karrierewege</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- App Feedback Form (hidden by default) -->
+            <div id="form-app" class="p-6 space-y-6 hidden">
+                <div>
+                    <label
+                        class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Feedback-Kategorie</label>
+                    <select
+                        class="w-full px-4 py-3 border border-gray-200 dark:border-gray-700 rounded-xl bg-white dark:bg-[#2A2520] focus:ring-primary focus:border-primary dark:text-white text-sm">
+                        <option value="">Bitte wählen...</option>
+                        <option value="bug">🐛 Bug melden</option>
+                        <option value="feature">💡 Feature-Vorschlag</option>
+                        <option value="design">🎨 Design-Feedback</option>
+                        <option value="content">📝 Inhaltsfehler</option>
+                        <option value="other">❓ Sonstiges</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Welche Seite betrifft
+                        es?</label>
+                    <select
+                        class="w-full px-4 py-3 border border-gray-200 dark:border-gray-700 rounded-xl bg-white dark:bg-[#2A2520] focus:ring-primary focus:border-primary dark:text-white text-sm">
+                        <option value="">Bitte wählen...</option>
+                        <option value="home">Übersicht (Homepage)</option>
+                        <option value="wiki">Firmen-Wiki</option>
+                        <option value="team">Team-Verzeichnis</option>
+                        <option value="chat">KI-Assistent</option>
+                        <option value="general">Allgemein/Übergreifend</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Beschreibe dein
+                        Anliegen</label>
+                    <textarea rows="5"
+                        class="w-full px-4 py-3 border border-gray-200 dark:border-gray-700 rounded-xl bg-white dark:bg-[#2A2520] focus:ring-primary focus:border-primary dark:text-white text-sm"
+                        placeholder="Je mehr Details, desto besser können wir helfen..."></textarea>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Screenshot anhängen
+                        (optional)</label>
+                    <div
+                        class="border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-xl p-6 text-center hover:bg-gray-50 dark:hover:bg-[#2A2520] transition-colors cursor-pointer">
+                        <span class="material-icons-outlined text-3xl text-gray-400 mb-2">cloud_upload</span>
+                        <p class="text-sm text-gray-500">Klicke oder ziehe eine Datei hierher</p>
+                        <p class="text-xs text-gray-400 mt-1">PNG, JPG bis 5MB</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Submit -->
+            <div
+                class="px-6 py-4 bg-gray-50 dark:bg-[#201815] border-t border-gray-100 dark:border-gray-700 flex justify-between items-center">
+                <label class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 cursor-pointer">
+                    <input type="checkbox"
+                        class="rounded text-primary focus:ring-primary border-gray-300 dark:border-gray-600" />
+                    Anonym absenden
+                </label>
+                <button
+                    class="px-6 py-2.5 bg-primary hover:bg-[#00006d] text-white rounded-xl font-medium transition-colors flex items-center gap-2 shadow-sm">
+                    <span class="material-icons-outlined text-sm">send</span>
+                    Feedback absenden
+                </button>
+            </div>
+        </div>
+
+        <!-- Previous Feedback -->
+        <div
+            class="mt-8 bg-surface-light dark:bg-surface-dark rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 p-6">
+            <h3 class="font-display font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                <span class="material-icons-outlined text-primary">history</span>
+                Dein bisheriges Feedback
+            </h3>
+            <div class="space-y-4">
+                <div class="p-4 bg-gray-50 dark:bg-[#2A2520] rounded-xl border border-gray-100 dark:border-gray-700">
+                    <div class="flex justify-between items-start mb-2">
+                        <span
+                            class="text-xs bg-orange-100 dark:bg-orange-900/30 text-[#000093] dark:text-orange-400 px-2 py-0.5 rounded-full font-medium">Bearbeitet</span>
+                        <span class="text-xs text-gray-500">03.02.2026</span>
+                    </div>
+                    <p class="text-sm text-gray-700 dark:text-gray-300">Die Einrichtung des VPN war etwas kompliziert,
+                        eine Schritt-für-Schritt-Anleitung wäre hilfreich gewesen.</p>
+                    <p class="text-xs text-primary dark:text-orange-400 mt-2 font-medium">→ VPN-Guide wurde zur
+                        Wissensbasis hinzugefügt</p>
+                </div>
+
+                <div class="p-4 bg-gray-50 dark:bg-[#2A2520] rounded-xl border border-gray-100 dark:border-gray-700">
+                    <div class="flex justify-between items-start mb-2">
+                        <span
+                            class="text-xs bg-yellow-100 dark:bg-yellow-900/30 text-yellow-600 dark:text-yellow-400 px-2 py-0.5 rounded-full font-medium">In
+                            Bearbeitung</span>
+                        <span class="text-xs text-gray-500">05.02.2026</span>
+                    </div>
+                    <p class="text-sm text-gray-700 dark:text-gray-300">Feature-Vorschlag: Dark Mode Schnellumschaltung
+                        in der Navigation</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="main-footer"></div>
+
+    <script>
+        // Form switching
+        function selectType(type) {
+            const btnOnboarding = document.getElementById('btn-onboarding');
+            const btnApp = document.getElementById('btn-app');
+            const formOnboarding = document.getElementById('form-onboarding');
+            const formApp = document.getElementById('form-app');
+
+            if (type === 'onboarding') {
+                btnOnboarding.classList.add('border-primary');
+                btnOnboarding.classList.remove('border-gray-200', 'dark:border-gray-700');
+                btnApp.classList.remove('border-primary');
+                btnApp.classList.add('border-gray-200', 'dark:border-gray-700');
+                formOnboarding.classList.remove('hidden');
+                formApp.classList.add('hidden');
+            } else {
+                btnApp.classList.add('border-primary');
+                btnApp.classList.remove('border-gray-200', 'dark:border-gray-700');
+                btnOnboarding.classList.remove('border-primary');
+                btnOnboarding.classList.add('border-gray-200', 'dark:border-gray-700');
+                formApp.classList.remove('hidden');
+                formOnboarding.classList.add('hidden');
+            }
+        }
+
+        // Rating selection
+        function selectRating(rating) {
+            document.querySelectorAll('.rating-btn').forEach((btn, idx) => {
+                if (idx + 1 === rating) {
+                    btn.classList.add('border-primary', 'bg-primary/10');
+                } else {
+                    btn.classList.remove('border-primary', 'bg-primary/10');
+                }
+            });
+        }
+
+        // Topic tags
+        document.querySelectorAll('.topic-tag').forEach(tag => {
+            tag.addEventListener('click', () => {
+                tag.classList.toggle('bg-primary');
+                tag.classList.toggle('text-white');
+                tag.classList.toggle('border-primary');
+            });
+        });
+    </script>
+
+</body>
+
+</html>

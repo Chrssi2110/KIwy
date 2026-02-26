@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>KIWY - Wissen teilen</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <script src="shared.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&amp;family=Poppins:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+    <style>
+        html {
+            overflow-y: scroll;
+            scrollbar-gutter: stable;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-gray-800 dark:text-gray-100 font-body transition-colors duration-300 min-h-screen flex flex-col">
+
+    <div id="assistant-bar"></div>
+    <div id="main-nav"></div>
+
+    <!-- Main Content -->
+    <main class="flex-grow max-w-4xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Header -->
+        <header class="mb-8 text-center">
+            <div
+                class="w-16 h-16 bg-gradient-to-br from-primary to-[#d4812f] rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                <span class="material-icons-outlined text-white text-3xl">lightbulb</span>
+            </div>
+            <h1 class="text-3xl font-display font-bold text-gray-900 dark:text-white">Wissen teilen</h1>
+            <p class="mt-2 text-lg text-gray-600 dark:text-gray-300">Teile hilfreiche Dokumente, Tipps und Erfahrungen
+                mit neuen Kiwis!</p>
+        </header>
+
+        <!-- Upload Section -->
+        <div
+            class="bg-surface-light dark:bg-surface-dark rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 overflow-hidden mb-8">
+            <div class="p-8">
+                <h2
+                    class="text-lg font-display font-semibold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
+                    <span class="material-icons-outlined text-primary">cloud_upload</span>
+                    Dokument hochladen
+                </h2>
+
+                <!-- Drop Zone -->
+                <div class="border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-2xl p-12 text-center hover:bg-orange-50 dark:hover:bg-[#2A2520] transition-colors cursor-pointer group mb-6"
+                    id="dropzone">
+                    <div
+                        class="w-16 h-16 bg-primary/10 dark:bg-orange-900/20 rounded-full flex items-center justify-center mx-auto mb-4 text-primary dark:text-orange-400 group-hover:scale-110 transition-transform">
+                        <span class="material-icons-outlined text-3xl">upload_file</span>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Dateien hier ablegen</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">oder klicken um Dateien auszuwählen</p>
+                    <p class="text-xs text-gray-400">PDF, Word, Excel, PowerPoint bis 25MB</p>
+                    <input type="file" class="hidden" id="fileInput" multiple
+                        accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx">
+                </div>
+
+                <!-- Category Selection -->
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Kategorie</label>
+                    <div class="flex flex-wrap gap-2">
+                        <button
+                            class="category-btn px-4 py-2 rounded-xl text-sm border-2 border-primary bg-primary/10 text-primary font-medium">
+                            📚 Onboarding
+                        </button>
+                        <button
+                            class="category-btn px-4 py-2 rounded-xl text-sm border border-gray-200 dark:border-gray-700 hover:border-primary transition-all">
+                            💼 Prozesse
+                        </button>
+                        <button
+                            class="category-btn px-4 py-2 rounded-xl text-sm border border-gray-200 dark:border-gray-700 hover:border-primary transition-all">
+                            🔧 Tools
+                        </button>
+                        <button
+                            class="category-btn px-4 py-2 rounded-xl text-sm border border-gray-200 dark:border-gray-700 hover:border-primary transition-all">
+                            🎨 Design
+                        </button>
+                        <button
+                            class="category-btn px-4 py-2 rounded-xl text-sm border border-gray-200 dark:border-gray-700 hover:border-primary transition-all">
+                            📝 Templates
+                        </button>
+                        <button
+                            class="category-btn px-4 py-2 rounded-xl text-sm border border-gray-200 dark:border-gray-700 hover:border-primary transition-all">
+                            💡 Tipps & Tricks
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Title & Description -->
+                <div class="space-y-4 mb-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Titel</label>
+                        <input type="text" placeholder="z.B. Einführung ins Designsystem"
+                            class="w-full px-4 py-3 border border-gray-200 dark:border-gray-700 rounded-xl bg-white dark:bg-[#2A2520] focus:ring-primary focus:border-primary dark:text-white text-sm" />
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Beschreibung
+                            (optional)</label>
+                        <textarea rows="3" placeholder="Worum geht es in diesem Dokument? Für wen ist es hilfreich?"
+                            class="w-full px-4 py-3 border border-gray-200 dark:border-gray-700 rounded-xl bg-white dark:bg-[#2A2520] focus:ring-primary focus:border-primary dark:text-white text-sm"></textarea>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <button
+                    class="w-full bg-primary hover:bg-[#d4812f] text-white py-3 rounded-xl font-semibold transition-colors flex items-center justify-center gap-2 shadow-md">
+                    <span class="material-icons-outlined">publish</span>
+                    Wissen teilen
+                </button>
+            </div>
+        </div>
+
+        <!-- Recently Shared -->
+        <div
+            class="bg-surface-light dark:bg-surface-dark rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 p-6">
+            <h3 class="font-display font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                <span class="material-icons-outlined text-primary">history</span>
+                Kürzlich geteilt
+            </h3>
+            <div class="space-y-4">
+                <div
+                    class="flex items-center gap-4 p-4 bg-gray-50 dark:bg-[#2A2520] rounded-xl border border-gray-100 dark:border-gray-700">
+                    <div
+                        class="w-10 h-10 rounded-lg bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 flex items-center justify-center">
+                        <span class="material-icons-outlined">picture_as_pdf</span>
+                    </div>
+                    <div class="flex-grow">
+                        <h4 class="text-sm font-semibold text-gray-900 dark:text-white">VPN Einrichtung Guide</h4>
+                        <p class="text-xs text-gray-500">Von Max Müller • vor 2 Tagen • 📚 Onboarding</p>
+                    </div>
+                    <span
+                        class="text-xs bg-orange-100 dark:bg-orange-900/30 text-primary px-2 py-1 rounded-full font-medium">12
+                        Views</span>
+                </div>
+
+                <div
+                    class="flex items-center gap-4 p-4 bg-gray-50 dark:bg-[#2A2520] rounded-xl border border-gray-100 dark:border-gray-700">
+                    <div
+                        class="w-10 h-10 rounded-lg bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 flex items-center justify-center">
+                        <span class="material-icons-outlined">description</span>
+                    </div>
+                    <div class="flex-grow">
+                        <h4 class="text-sm font-semibold text-gray-900 dark:text-white">Slack Channels Übersicht</h4>
+                        <p class="text-xs text-gray-500">Von Sandra Hoffmann • vor 1 Woche • 🔧 Tools</p>
+                    </div>
+                    <span
+                        class="text-xs bg-orange-100 dark:bg-orange-900/30 text-primary px-2 py-1 rounded-full font-medium">28
+                        Views</span>
+                </div>
+
+                <div
+                    class="flex items-center gap-4 p-4 bg-gray-50 dark:bg-[#2A2520] rounded-xl border border-gray-100 dark:border-gray-700">
+                    <div
+                        class="w-10 h-10 rounded-lg bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 flex items-center justify-center">
+                        <span class="material-icons-outlined">tips_and_updates</span>
+                    </div>
+                    <div class="flex-grow">
+                        <h4 class="text-sm font-semibold text-gray-900 dark:text-white">10 Tipps für die erste Woche
+                        </h4>
+                        <p class="text-xs text-gray-500">Von Elena Bauer • vor 2 Wochen • 💡 Tipps & Tricks</p>
+                    </div>
+                    <span
+                        class="text-xs bg-orange-100 dark:bg-orange-900/30 text-primary px-2 py-1 rounded-full font-medium">45
+                        Views</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="main-footer"></div>
+
+    <script>
+        // Category selection
+        document.querySelectorAll('.category-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.category-btn').forEach(b => {
+                    b.classList.remove('border-primary', 'bg-primary/10', 'text-primary', 'font-medium', 'border-2');
+                    b.classList.add('border-gray-200', 'dark:border-gray-700');
+                });
+                btn.classList.remove('border-gray-200', 'dark:border-gray-700');
+                btn.classList.add('border-primary', 'bg-primary/10', 'text-primary', 'font-medium', 'border-2');
+            });
+        });
+
+        // Dropzone click
+        document.getElementById('dropzone').addEventListener('click', () => {
+            document.getElementById('fileInput').click();
+        });
+    </script>
+
+</body>
+
+</html>

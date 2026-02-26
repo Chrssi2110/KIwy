@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>KIWY - IT & Support</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <script src="shared.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&amp;family=Poppins:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+    <style>
+        html {
+            overflow-y: scroll;
+            scrollbar-gutter: stable;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-gray-800 dark:text-gray-100 font-body transition-colors duration-300 min-h-screen flex flex-col">
+
+    <div id="assistant-bar"></div>
+    <div id="main-nav"></div>
+
+    <!-- Main Content -->
+    <main class="flex-grow max-w-4xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Header -->
+        <header class="mb-8 text-center">
+            <div
+                class="w-20 h-20 bg-gradient-to-br from-primary to-[#d4812f] rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg shadow-orange-200 dark:shadow-none">
+                <span class="material-icons-outlined text-white text-4xl">headset_mic</span>
+            </div>
+            <h1 class="text-3xl font-display font-bold text-gray-900 dark:text-white">IT & Support</h1>
+            <p class="mt-2 text-lg text-gray-600 dark:text-gray-300">Probleme mit Hard- oder Software? Wir helfen dir
+                sofort weiter.</p>
+        </header>
+
+        <!-- Support Card Content -->
+        <div class="max-w-2xl mx-auto">
+            <div
+                class="bg-gradient-to-br from-primary to-[#d4812f] text-white rounded-2xl shadow-xl overflow-hidden relative mb-10">
+                <div class="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 rounded-full bg-white opacity-5">
+                </div>
+                <div class="absolute bottom-0 left-0 -ml-16 -mb-16 w-48 h-48 rounded-full bg-accent opacity-20">
+                </div>
+                <div class="p-8 relative z-10 text-center">
+                    <h2 class="text-2xl font-display font-semibold mb-4">
+                        Benötigst du IT-Support?
+                    </h2>
+                    <p class="text-white/90 mb-8 max-w-lg mx-auto">
+                        Hast du Probleme mit deiner Einrichtung oder deinem Zugang? Unser IT-Team hilft dir gerne
+                        beim Start und bei allen technischen Fragen.
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-md mx-auto mb-8">
+                        <button
+                            class="w-full bg-white text-primary font-medium py-4 px-6 rounded-xl shadow-lg hover:bg-gray-50 transition-transform transform hover:-translate-y-1 flex items-center justify-center gap-3">
+                            <span class="material-icons-outlined">chat</span>
+                            <span>Live-Chat starten</span>
+                        </button>
+                        <button
+                            class="w-full bg-white/20 backdrop-blur-sm border border-white/20 text-white font-medium py-4 px-6 rounded-xl hover:bg-white/30 transition-transform transform hover:-translate-y-1 flex items-center justify-center gap-3">
+                            <span class="material-icons-outlined">email</span>
+                            <span>Ticket eröffnen</span>
+                        </button>
+                    </div>
+                    <div class="flex flex-col items-center gap-2 pt-6 border-t border-white/20">
+                        <div class="flex -space-x-3 mb-2">
+                            <img alt="Support Agent" class="inline-block h-10 w-10 rounded-full ring-2 ring-primary"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuASZ07S92SK6NaKg6_J7ZRl2fOGy5Sl5FjK9R-_ryYKHlen1hVqiKP1Pr6f49UOmg8rrjoH9h-dnBhG_pBcY-_IIGlK1wkn6kWoO7Au9gI-65GoqPdQ9PG6wfQKyDWnuQODsHf3s0rap0RD8pZcKOxMKrbPBN9Yrd_1rafka0aW6Tyq5dmZSmFMcWd447iJe-TY17axY0R0Sud99hysitp2kNzgDrgHcpRpmFAcuPLwZxrZZ-fXQuq_6_Nw9S6xDdZqv9Ue7rLab2SY" />
+                            <img alt="Support Agent" class="inline-block h-10 w-10 rounded-full ring-2 ring-primary"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDT0M4PegDdq13dpdYe3eaAPW_5hVvVfQXROgqHEpYOdYcqueHprcIXcQxrPuxReEBsVYn5ZUxSSbd8G-Wvn-K0wJkZ8WjUBpgCadcdDJCKJXEcCXaacfiYugnIeR9U5zD7tHpPo9DttcuABfyZdK6oBCJ2SopOU5j9lch4rBHhJm9OJfwR69NzipMeUPoMlapSABFIemHEaJNBWg5bDa92Nur0A8B4sB-iIpwMCzPlJfoO43VeRzuBE76i5okOvetRX_sdbk6JJtG" />
+                        </div>
+                        <span class="text-sm font-medium opacity-90">Unser Team antwortet meist in < 5 Min.</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Section -->
+            <div
+                class="bg-surface-light dark:bg-surface-dark rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 p-6">
+                <h3 class="font-display font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                    <span class="material-icons-outlined text-primary">live_help</span>
+                    Häufige Fragen
+                </h3>
+                <div class="divide-y divide-gray-100 dark:divide-gray-700">
+                    <button class="w-full text-left py-4 flex items-center justify-between group">
+                        <span
+                            class="font-medium text-gray-700 dark:text-gray-200 group-hover:text-primary transition-colors">Wie
+                            setze ich mein Passwort zurück?</span>
+                        <span class="material-icons-outlined text-gray-400 group-hover:text-primary">expand_more</span>
+                    </button>
+                    <button class="w-full text-left py-4 flex items-center justify-between group">
+                        <span
+                            class="font-medium text-gray-700 dark:text-gray-200 group-hover:text-primary transition-colors">Wie
+                            verbinde ich mich mit dem VPN?</span>
+                        <span class="material-icons-outlined text-gray-400 group-hover:text-primary">expand_more</span>
+                    </button>
+                    <button class="w-full text-left py-4 flex items-center justify-between group">
+                        <span
+                            class="font-medium text-gray-700 dark:text-gray-200 group-hover:text-primary transition-colors">Neue
+                            Hardware anfordern</span>
+                        <span class="material-icons-outlined text-gray-400 group-hover:text-primary">expand_more</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="main-footer"></div>
+
+</body>
+
+</html>

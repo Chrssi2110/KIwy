@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>KIWY - Firmen-Wiki & Organigramm</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <script src="shared.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&amp;family=Poppins:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+    <style>
+        html {
+            overflow-y: scroll;
+            scrollbar-gutter: stable;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+
+        .dark ::-webkit-scrollbar-thumb {
+            background: #4b5563;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-gray-800 dark:text-gray-100 font-body transition-colors duration-300 min-h-screen flex flex-col">
+
+    <div id="assistant-bar"></div>
+    <div id="main-nav"></div>
+
+    <!-- Main Content -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Header -->
+        <header class="mb-8">
+            <h1 class="text-3xl font-display font-bold text-gray-900 dark:text-white">Firmen-Wiki</h1>
+            <p class="mt-2 text-lg text-gray-600 dark:text-gray-300">Willkommen im Team! Hier findest du alles
+                Wissenswerte über die Organisationsstruktur und deine Abteilung.</p>
+        </header>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Left Column - 2/3 -->
+            <div class="lg:col-span-2 space-y-8">
+
+                <!-- Department Org Chart -->
+                <section
+                    class="bg-surface-light dark:bg-surface-dark rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 overflow-hidden">
+                    <div
+                        class="px-6 py-5 border-b border-gray-100 dark:border-gray-700 flex justify-between items-center bg-gradient-to-r from-primary/5 to-transparent">
+                        <h2
+                            class="text-lg font-display font-semibold text-gray-900 dark:text-white flex items-center gap-2">
+                            <span class="material-icons-outlined text-primary">groups</span> Meine Abteilung:
+                            Produktdesign
+                        </h2>
+                        <span
+                            class="bg-orange-100 dark:bg-orange-900/30 text-primary dark:text-orange-400 text-xs font-medium px-2.5 py-0.5 rounded-full">Aktiv</span>
+                    </div>
+                    <div class="p-6">
+                        <!-- Role Input -->
+                        <div
+                            class="mb-8 bg-gray-50 dark:bg-[#2A2520] rounded-xl p-4 border border-gray-200 dark:border-gray-700">
+                            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                                for="job-position">Deine Rolle</label>
+                            <div class="flex gap-4 flex-wrap">
+                                <div class="relative flex-grow">
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                        <span class="material-icons-outlined text-gray-400 text-sm">badge</span>
+                                    </div>
+                                    <input
+                                        class="focus:ring-primary focus:border-primary block w-full pl-10 py-2 sm:text-sm border-gray-300 dark:border-gray-600 dark:bg-[#201815] rounded-lg dark:text-white"
+                                        id="job-position" name="job-position" placeholder="Junior Designer" type="text"
+                                        value="Produktdesigner" />
+                                </div>
+                                <button
+                                    class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-lg shadow-sm text-white bg-primary hover:bg-[#00006d] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors whitespace-nowrap"
+                                    type="button">
+                                    Position aktualisieren
+                                </button>
+                            </div>
+                            <p class="mt-2 text-xs text-gray-500 dark:text-gray-400">Änderungen werden nach Genehmigung
+                                durch den Manager im Organigramm sichtbar.</p>
+                        </div>
+
+                        <!-- Org Chart -->
+                        <div class="relative">
+                            <h3
+                                class="text-sm font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-4">
+                                Abteilungsstruktur</h3>
+                            <div class="overflow-x-auto pb-4">
+                                <div class="min-w-[600px] flex flex-col items-center space-y-6">
+                                    <!-- Team Lead -->
+                                    <div class="flex flex-col items-center">
+                                        <div
+                                            class="w-64 bg-white dark:bg-[#2A2520] p-4 rounded-xl shadow-md border-t-4 border-primary flex items-center space-x-4">
+                                            <img alt="Sandra Hoffmann" class="h-12 w-12 rounded-full object-cover"
+                                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvLUw1Q1FF8m82kBnas6QedJIpLPeILr-UA-muIVylyGzmnZxc0tGw4nPmPrmHffhw-wQANv68odnDU7C-loZEfUqFXnZsdnCrCiX4illDkpmSnMzaPYe4b80qjwVtXVweNNuRxkBk5gIqYyiSDWw1e_NG9SMNm5qIUmZcl9X9aZcgZaerzznHH1pJLuA4Bv-KybJ52-0OnjbajAqFVcT6J7t2jsrq9dXawgoE0j3tu_mgs44q0ypkkwUfmrAo1VEvWW5Q5YljUfPc" />
+                                            <div>
+                                                <p class="text-sm font-bold text-gray-900 dark:text-white">Sandra
+                                                    Hoffmann
+                                                </p>
+                                                <p class="text-xs text-primary dark:text-orange-400 font-medium">
+                                                    Designleitung</p>
+                                            </div>
+                                        </div>
+                                        <div class="h-8 w-px bg-gray-300 dark:bg-gray-600"></div>
+                                    </div>
+
+                                    <!-- Team Members -->
+                                    <div class="flex justify-center space-x-8 relative">
+                                        <div
+                                            class="absolute top-0 left-1/4 right-1/4 h-px bg-gray-300 dark:bg-gray-600 -translate-y-px">
+                                        </div>
+
+                                        <!-- Left Branch -->
+                                        <div class="flex flex-col items-center pt-6 relative">
+                                            <div
+                                                class="absolute top-0 left-1/2 h-6 w-px bg-gray-300 dark:bg-gray-600 -translate-x-1/2">
+                                            </div>
+                                            <div
+                                                class="w-52 bg-white dark:bg-[#2A2520] p-3 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 flex items-center space-x-3 mb-4">
+                                                <img alt="Markus Fischer" class="h-10 w-10 rounded-full object-cover"
+                                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_L57EPeiEraUzqSEt0bvP1plADsDGbImQklOWhDFT-wiAKLaKB0ARljyYZqTX23hdJaWAcs05NiJUCqLkHlqfH_jR8a34kZtpuqXCmLJhzZWTcIPoPoLYPPTxKk9Y4lnAmKpN8xW9chjjiSHkugECCnVyX_4pOikGfhsJKpWSrz7ThApZNr7rbz4uwPVr_5b0Yptz-paElHtLapo5fmeIWTMV1IU8vN5QwHDr7_gMbS8p6k7Lj9dgK-y2m0FgMZ9bkUbUCEkDgkT_" />
+                                                <div>
+                                                    <p class="text-sm font-semibold text-gray-900 dark:text-white">
+                                                        Markus Fischer</p>
+                                                    <p class="text-xs text-gray-500 dark:text-gray-400">Senior UX Lead
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="h-4 w-px bg-gray-300 dark:bg-gray-600"></div>
+                                            <!-- Current User - Highlighted -->
+                                            <div
+                                                class="w-52 bg-primary/10 dark:bg-primary/20 p-3 rounded-xl border-2 border-primary/50 flex items-center space-x-3">
+                                                <div class="relative">
+                                                    <img alt="Valerie Schneider"
+                                                        class="h-10 w-10 rounded-full object-cover"
+                                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWhnYueVnA9O2Kjjfo_KCm8NhT5u1HVR84doUsfVgiM2fN_2T47IboAYpOyb6d1FLOLyzw5VjUyynvAi45dqRFkXpC4BMxebBsyFg0SwuimE31SVh5kCvx_wKSjx_wOHmuLpRoWLnAFJqdRpB3BPGfyEf6NAX8D2GSXbJWb1AjDA4hEjDHCTJp0NjD7qg7kxYd913ZU87VKWi_udUA5ToABPtqONf7xqLrLw9bDclll2-abu5cf9LZnQdWJrz99IvotNsI2xiggYOS" />
+                                                    <span
+                                                        class="absolute bottom-0 right-0 block h-2.5 w-2.5 rounded-full bg-orange-400 ring-2 ring-white dark:ring-gray-800"></span>
+                                                </div>
+                                                <div>
+                                                    <p class="text-sm font-semibold text-gray-900 dark:text-white">
+                                                        Valerie Schneider</p>
+                                                    <p class="text-xs text-primary font-bold">Produktdesigner</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Right Branch -->
+                                        <div class="flex flex-col items-center pt-6 relative">
+                                            <div
+                                                class="absolute top-0 left-1/2 h-6 w-px bg-gray-300 dark:bg-gray-600 -translate-x-1/2">
+                                            </div>
+                                            <div
+                                                class="w-52 bg-white dark:bg-[#2A2520] p-3 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 flex items-center space-x-3 opacity-70 hover:opacity-100 transition-all cursor-pointer">
+                                                <img alt="Elena Bauer" class="h-10 w-10 rounded-full object-cover"
+                                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxQ63_iUE9ylQKAiABRPSG2khH9d94GALRXTAPwJifw_43ZxsmmUmX-p0elfqK-bYBpJaQJ7WJH1RFu4-kt0zbfiDoIl8_7rZrm0zG6FG0keqSBGJ-xt5Qe-G5XjqFBl0Haj004ii99JD8zlyAP09BEL22CLJJOLUJMALqn2mzGHbwhqsF3mXZ4J7A6sOtBcFshVSVH11YMvmW2Jav1HqsTgzHGMRLRrg4D4Aa9CbIf7b8Pd20wcG2ZNFHJi0-dA9pa8sWr1Mu8gfg" />
+                                                <div>
+                                                    <p class="text-sm font-semibold text-gray-900 dark:text-white">Elena
+                                                        Bauer</p>
+                                                    <p class="text-xs text-gray-500 dark:text-gray-400">Senior UI Lead
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 dark:bg-[#2A2520] px-6 py-4 border-t border-gray-100 dark:border-gray-700">
+                        <button
+                            class="text-sm text-primary dark:text-orange-400 font-medium hover:text-primary/80 flex items-center gap-1">
+                            Vollständiges Organigramm anzeigen <span
+                                class="material-icons-outlined text-sm">arrow_forward</span>
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Coffee-Talk Section -->
+                <section
+                    class="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-[#2c2218] dark:to-[#251d15] rounded-2xl shadow-sm border border-orange-200 dark:border-orange-900/30 overflow-hidden">
+                    <div class="px-6 py-5 border-b border-orange-200/50 dark:border-orange-900/20">
+                        <h2
+                            class="text-lg font-display font-semibold text-gray-900 dark:text-white flex items-center gap-2">
+                            <span class="text-2xl">☕</span> Coffee-Talks
+                        </h2>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">Lerne dein Team bei einem virtuellen
+                            Kaffee kennen!</p>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <!-- Speech Bubble 1 -->
+                        <div class="flex items-start gap-3">
+                            <img class="w-10 h-10 rounded-full ring-2 ring-orange-200 dark:ring-orange-800"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvLUw1Q1FF8m82kBnas6QedJIpLPeILr-UA-muIVylyGzmnZxc0tGw4nPmPrmHffhw-wQANv68odnDU7C-loZEfUqFXnZsdnCrCiX4illDkpmSnMzaPYe4b80qjwVtXVweNNuRxkBk5gIqYyiSDWw1e_NG9SMNm5qIUmZcl9X9aZcgZaerzznHH1pJLuA4Bv-KybJ52-0OnjbajAqFVcT6J7t2jsrq9dXawgoE0j3tu_mgs44q0ypkkwUfmrAo1VEvWW5Q5YljUfPc"
+                                alt="Sandra" />
+                            <div class="flex-1">
+                                <div
+                                    class="bg-white dark:bg-[#352d25] rounded-2xl rounded-tl-none px-4 py-3 shadow-sm border border-orange-100 dark:border-orange-900/30">
+                                    <p class="text-sm text-gray-700 dark:text-gray-300">"Hey Valerie! 👋 Lust auf einen
+                                        virtuellen Kaffee? Ich würde dir gern mehr über unser Designsystem erzählen!"
+                                    </p>
+                                </div>
+                                <p class="text-xs text-gray-500 mt-1 ml-1">Sandra Hoffmann • Designleitung</p>
+                            </div>
+                        </div>
+                        <!-- Speech Bubble 2 -->
+                        <div class="flex items-start gap-3">
+                            <img class="w-10 h-10 rounded-full ring-2 ring-orange-200 dark:ring-orange-800"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_L57EPeiEraUzqSEt0bvP1plADsDGbImQklOWhDFT-wiAKLaKB0ARljyYZqTX23hdJaWAcs05NiJUCqLkHlqfH_jR8a34kZtpuqXCmLJhzZWTcIPoPoLYPPTxKk9Y4lnAmKpN8xW9chjjiSHkugECCnVyX_4pOikGfhsJKpWSrz7ThApZNr7rbz4uwPVr_5b0Yptz-paElHtLapo5fmeIWTMV1IU8vN5QwHDr7_gMbS8p6k7Lj9dgK-y2m0FgMZ9bkUbUCEkDgkT_"
+                                alt="Markus" />
+                            <div class="flex-1">
+                                <div
+                                    class="bg-white dark:bg-[#352d25] rounded-2xl rounded-tl-none px-4 py-3 shadow-sm border border-orange-100 dark:border-orange-900/30">
+                                    <p class="text-sm text-gray-700 dark:text-gray-300">"Donnerstags 15 Uhr hab ich
+                                        immer einen freien Slot für neue Kiwis! ☕ Lass uns quatschen."</p>
+                                </div>
+                                <p class="text-xs text-gray-500 mt-1 ml-1">Markus Fischer • Senior UX Lead</p>
+                            </div>
+                        </div>
+                        <button
+                            class="w-full mt-2 py-2.5 text-sm font-medium text-primary dark:text-orange-400 bg-white dark:bg-[#2A2520] rounded-xl border border-orange-200 dark:border-orange-800 hover:bg-orange-50 dark:hover:bg-[#352d25] transition flex items-center justify-center gap-2">
+                            <span class="material-icons-outlined text-sm">event</span>
+                            Coffee-Talk buchen
+                        </button>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Right Column - 1/3 -->
+            <div class="lg:col-span-1 space-y-8">
+
+                <!-- Company Documents -->
+                <section
+                    class="bg-surface-light dark:bg-surface-dark rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800">
+                    <div class="px-6 py-5 border-b border-gray-100 dark:border-gray-700">
+                        <h2
+                            class="text-lg font-display font-semibold text-gray-900 dark:text-white flex items-center gap-2">
+                            <span class="material-icons-outlined text-primary">folder_shared</span> Firmendokumente
+                        </h2>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <a class="group flex items-start gap-4 p-3 rounded-xl hover:bg-gray-50 dark:hover:bg-[#2A2520] transition-colors"
+                            href="#">
+                            <div
+                                class="flex-shrink-0 w-10 h-10 rounded-lg bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 flex items-center justify-center">
+                                <span class="material-icons-outlined">picture_as_pdf</span>
+                            </div>
+                            <div class="flex-grow">
+                                <h4
+                                    class="text-sm font-medium text-gray-900 dark:text-white group-hover:text-primary transition-colors">
+                                    Mitarbeiterhandbuch 2026</h4>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Aktualisiert am 04.02.2026 •
+                                    2.4
+                                    MB</p>
+                            </div>
+                            <span
+                                class="material-icons-outlined text-gray-400 text-sm opacity-0 group-hover:opacity-100 transition-opacity">download</span>
+                        </a>
+                        <a class="group flex items-start gap-4 p-3 rounded-xl hover:bg-gray-50 dark:hover:bg-[#2A2520] transition-colors"
+                            href="#">
+                            <div
+                                class="flex-shrink-0 w-10 h-10 rounded-lg bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 flex items-center justify-center">
+                                <span class="material-icons-outlined">description</span>
+                            </div>
+                            <div class="flex-grow">
+                                <h4
+                                    class="text-sm font-medium text-gray-900 dark:text-white group-hover:text-primary transition-colors">
+                                    Markenrichtlinien</h4>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Aktualisiert vor 1 Monat • 15
+                                    MB</p>
+                            </div>
+                            <span
+                                class="material-icons-outlined text-gray-400 text-sm opacity-0 group-hover:opacity-100 transition-opacity">download</span>
+                        </a>
+                        <a class="group flex items-start gap-4 p-3 rounded-xl hover:bg-gray-50 dark:hover:bg-[#2A2520] transition-colors"
+                            href="#">
+                            <div
+                                class="flex-shrink-0 w-10 h-10 rounded-lg bg-orange-100 dark:bg-orange-900/30 text-[#000093] dark:text-orange-400 flex items-center justify-center">
+                                <span class="material-icons-outlined">table_chart</span>
+                            </div>
+                            <div class="flex-grow">
+                                <h4
+                                    class="text-sm font-medium text-gray-900 dark:text-white group-hover:text-primary transition-colors">
+                                    Urlaubskalender</h4>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Aktualisiert vor 3 Monaten •
+                                    500 KB</p>
+                            </div>
+                            <span
+                                class="material-icons-outlined text-gray-400 text-sm opacity-0 group-hover:opacity-100 transition-opacity">download</span>
+                        </a>
+                        <button
+                            class="w-full mt-2 py-2 text-sm text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-white transition-colors border border-dashed border-gray-300 dark:border-gray-600 rounded-lg flex justify-center items-center gap-2">
+                            Alle Dokumente anzeigen
+                        </button>
+                    </div>
+                </section>
+
+
+
+                <!-- Wissen hinzufügen -->
+                <section
+                    class="bg-surface-light dark:bg-surface-dark rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 p-6">
+                    <h2
+                        class="text-lg font-display font-semibold text-gray-900 dark:text-white flex items-center gap-2 mb-4">
+                        <span class="material-icons-outlined text-primary">lightbulb</span> Wissen teilen
+                    </h2>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Hast du hilfreiche Dokumente oder Tipps für
+                        neue Kiwis? Teile dein Wissen mit dem Team!</p>
+                    <div
+                        class="border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-xl p-5 text-center hover:bg-gray-50 dark:hover:bg-[#2A2520] transition-colors cursor-pointer group">
+                        <div
+                            class="w-10 h-10 bg-primary/10 dark:bg-orange-900/20 rounded-full flex items-center justify-center mx-auto mb-3 text-primary dark:text-orange-400 group-hover:scale-110 transition-transform">
+                            <span class="material-icons-outlined">cloud_upload</span>
+                        </div>
+                        <h4 class="text-sm font-medium text-gray-900 dark:text-white">Wissen hinzufügen</h4>
+                        <p class="text-xs text-gray-500 mt-1 mb-3">Dateien hierher ziehen</p>
+                        <button class="text-xs font-semibold text-primary dark:text-orange-400 hover:underline">Dateien
+                            durchsuchen</button>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <div id="main-footer"></div>
+
+</body>
+
+</html>

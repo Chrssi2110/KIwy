@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>KIWY Onboarding</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <script src="shared.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&amp;family=Poppins:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+    <style>
+        html {
+            overflow-y: scroll;
+            scrollbar-gutter: stable;
+        }
+
+        /* L-shaped corner buttons */
+        .corner-btn {
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            z-index: 10;
+        }
+
+        .corner-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .corner-btn svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .corner-bottom-left {
+            bottom: 8px;
+            left: 8px;
+        }
+
+        .corner-top-right {
+            top: 8px;
+            right: 8px;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-gray-800 dark:text-gray-100 font-body transition-colors duration-300 min-h-screen flex flex-col">
+
+    <div id="assistant-bar"></div>
+    <div id="main-nav"></div>
+
+    <main class="flex-grow py-8 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
+        <div
+            class="mb-8 bg-gradient-to-r from-primary to-[#d4812f] rounded-2xl p-8 shadow-lg text-white relative overflow-hidden">
+            <div class="relative z-10">
+                <h1 class="text-3xl md:text-4xl font-display font-bold mb-2">Willkommen im Team, Valerie! 🥝</h1>
+                <p class="text-orange-100 text-lg max-w-2xl">Wir freuen uns riesig, dich an Bord zu haben. Deine Reise
+                    mit KIWY beginnt hier. Lass uns dich mit deinem Plan für die erste Woche vertraut machen.</p>
+                <div class="mt-6 flex flex-wrap gap-3">
+                    <button
+                        class="bg-white text-primary hover:bg-orange-50 px-5 py-2.5 rounded-lg font-medium text-sm transition shadow-sm flex items-center gap-2">
+                        <span class="material-icons-outlined text-sm">play_circle</span>
+                        Tour starten
+                    </button>
+                    <button
+                        class="bg-primary border border-[#000093] hover:bg-[#00006d] text-white px-5 py-2.5 rounded-lg font-medium text-sm transition flex items-center gap-2">
+                        <span class="material-icons-outlined text-sm">download</span>
+                        Handbuch herunterladen
+                    </button>
+                </div>
+            </div>
+            <div class="absolute -top-12 -right-12 w-64 h-64 bg-white opacity-5 rounded-full blur-2xl"></div>
+            <div class="absolute bottom-0 right-20 w-32 h-32 bg-accent opacity-10 rounded-full blur-xl"></div>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div class="lg:col-span-2 space-y-8">
+                <div
+                    class="bg-surface-light dark:bg-surface-dark rounded-2xl p-6 shadow-sm border border-gray-100 dark:border-gray-800">
+                    <div class="flex items-center justify-between mb-4">
+                        <h2 class="text-xl font-display font-bold text-gray-900 dark:text-white">Onboarding-Fortschritt
+                        </h2>
+                        <span
+                            class="bg-orange-100 dark:bg-orange-900 text-primary dark:text-blue-300 px-3 py-1 rounded-full text-xs font-bold">Tag
+                            1 von 5</span>
+                    </div>
+                    <div class="relative pt-1">
+                        <div class="flex mb-2 items-center justify-between">
+                            <div>
+                                <span
+                                    class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-primary bg-orange-100 dark:bg-orange-900 dark:text-blue-300">
+                                    35% Abgeschlossen
+                                </span>
+                            </div>
+                        </div>
+                        <div class="overflow-hidden h-2 mb-4 text-xs flex rounded bg-gray-200 dark:bg-gray-700">
+                            <div class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-primary"
+                                style="width:35%"></div>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="bg-surface-light dark:bg-surface-dark rounded-2xl p-6 shadow-sm border border-gray-100 dark:border-gray-800">
+                    <div class="flex items-center justify-between mb-6">
+                        <h2
+                            class="text-xl font-display font-bold text-gray-900 dark:text-white flex items-center gap-2">
+                            <span class="material-icons-outlined text-primary">calendar_today</span>
+                            Deine Aufgaben
+                        </h2>
+                        <button
+                            class="text-sm text-primary hover:text-[#000093] dark:hover:text-orange-400 font-medium">Gesamten
+                            Plan ansehen</button>
+                    </div>
+                    <div class="space-y-4">
+                        <div
+                            class="flex items-start gap-4 p-4 rounded-xl bg-gray-50 dark:bg-[#2A2520] border border-gray-100 dark:border-gray-700 group hover:border-primary/30 transition-all">
+                            <div class="mt-1">
+                                <input checked=""
+                                    class="h-5 w-5 text-primary focus:ring-primary border-gray-300 rounded cursor-pointer"
+                                    type="checkbox" />
+                            </div>
+                            <div class="flex-1">
+                                <h3
+                                    class="text-base font-semibold text-gray-800 dark:text-gray-100 line-through text-opacity-60 dark:text-opacity-60">
+                                    IT-Setup &amp; Kontozugriff</h3>
+                                <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Konfiguriere deine E-Mail,
+                                    Slack und den VPN-Zugang.</p>
+                            </div>
+                            <span
+                                class="text-xs font-medium text-[#000093] bg-blue-50 dark:bg-orange-900/30 dark:text-orange-400 px-2 py-1 rounded">Erledigt</span>
+                        </div>
+                        <div
+                            class="flex items-start gap-4 p-4 rounded-xl bg-white dark:bg-surface-dark border border-gray-200 dark:border-gray-700 group hover:border-primary/50 hover:shadow-md transition-all">
+                            <div class="mt-1">
+                                <input
+                                    class="h-5 w-5 text-primary focus:ring-primary border-gray-300 rounded cursor-pointer"
+                                    type="checkbox" />
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-base font-semibold text-gray-800 dark:text-gray-100">
+                                    Team-Vorstellungsgespräch</h3>
+                                <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Zoom-Call mit dem Design-Team
+                                    um 14:00 Uhr.</p>
+                                <div class="mt-2 flex items-center gap-2">
+                                    <span class="flex -space-x-2 overflow-hidden">
+                                        <img alt=""
+                                            class="inline-block h-6 w-6 rounded-full ring-2 ring-white dark:ring-gray-800"
+                                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvraEY9GRe2CeeSjWQqEYV2Bftzi9CXxQRGMCtyIRcupMc-JBl96BXeNmgjr3NGmL0W8CQrion3SXfpR3GqyOLqDXviy6miwXRiQS4jB0_kjE-SX4kkIy3MXpoYhUCPuLOrN2m25BybObd9kVLj3n1qzVvqSGSa1oIlDZPKxWcg-SAYH8k9Dxiq72zBbSgXFomd36t7dhIzI10iUaPEfK4mR2PLxedb6qQ9gqhTLP2O4G8KEd8qMojS8-UuDQKUclzoh4bs8kL9LFV" />
+                                        <img alt=""
+                                            class="inline-block h-6 w-6 rounded-full ring-2 ring-white dark:ring-gray-800"
+                                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMvXCFbjkkjVRayC5aA2jOOb1pmQthwqVqqD0rx6by5zhcagPGcQrEYFYl0t7WhkCFb44qV3IahxDUPN3KKtmbEqhAz0apSsC3ASWKHRmLFMZ1jgZi0Bl49HEBGVMoODodzMCw2NOZMpAaCqHpEytvnhEUzJx1VWXHOSrsO9_4Ktvkla1QG9lsHV7yme6w6LL-69Ejm_C2kgflZGe7qwKQbuZjHUWFu34qnUxQ0TF59_sFYrpqPP9w1QRA36PzRp_PULZYfqwP_g0W" />
+                                        <img alt=""
+                                            class="inline-block h-6 w-6 rounded-full ring-2 ring-white dark:ring-gray-800"
+                                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiQzAc72HsqwBso6sSrezCT2ukneVg9NN8XdFsf2KutIukkIpdGNBkiduRlHPVMt1zkeBPt9IaPxzGv8PIFB104JUcGf9HvLwgieR-gM4Q6Ca1ErK7_l_PYXN3JNIM4u3jaLg1PnWl-9D4mjKtvA-B-aXc4L1bcg-klBdJhDZrwNU2tyf1bMgvNycEfZiD-bWbg850iboRAgEpi0TBPme-J_PZ3k77oQajtpj8NQBC41sIy5mrLUBsZZNcH6PXB1b207qxQOs3fw0n" />
+                                    </span>
+                                    <span class="text-xs text-gray-400">+ 4 weitere</span>
+                                </div>
+                            </div>
+                            <button
+                                class="text-xs font-medium text-white bg-primary hover:bg-[#00006d] px-3 py-1.5 rounded-lg transition">Beitreten</button>
+                        </div>
+                        <div
+                            class="flex items-start gap-4 p-4 rounded-xl bg-white dark:bg-surface-dark border border-gray-200 dark:border-gray-700 group hover:border-primary/50 hover:shadow-md transition-all">
+                            <div class="mt-1">
+                                <input
+                                    class="h-5 w-5 text-primary focus:ring-primary border-gray-300 rounded cursor-pointer"
+                                    type="checkbox" />
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-base font-semibold text-gray-800 dark:text-gray-100">Personalunterlagen
+                                    prüfen</h3>
+                                <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Lies dir die Gesundheits- und
+                                    Wellness-Dokumentation durch.</p>
+                            </div>
+                            <span
+                                class="text-xs font-medium text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded">Fällig
+                                17:00 Uhr</span>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="bg-surface-light dark:bg-surface-dark rounded-2xl p-6 shadow-sm border border-gray-100 dark:border-gray-800">
+                    <h2 class="text-xl font-display font-bold text-gray-900 dark:text-white mb-4">Wichtige Dokumente
+                    </h2>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <a class="flex items-center gap-3 p-3 rounded-xl border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition"
+                            href="#">
+                            <div class="p-2 bg-blue-50 dark:bg-blue-900/20 rounded-lg text-blue-600 dark:text-blue-400">
+                                <span class="material-icons-outlined text-xl">description</span>
+                            </div>
+                            <div>
+                                <p class="font-medium text-sm text-gray-900 dark:text-gray-100">Mitarbeiterhandbuch.pdf
+                                </p>
+                                <p class="text-xs text-gray-500">Aktualisiert am 04.02.2026</p>
+                            </div>
+                        </a>
+                        <a class="flex items-center gap-3 p-3 rounded-xl border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition"
+                            href="#">
+                            <div
+                                class="p-2 bg-orange-50 dark:bg-orange-900/20 rounded-lg text-orange-600 dark:text-orange-400">
+                                <span class="material-icons-outlined text-xl">security</span>
+                            </div>
+                            <div>
+                                <p class="font-medium text-sm text-gray-900 dark:text-gray-100">Sicherheitsrichtlinie
+                                </p>
+                                <p class="text-xs text-gray-500">Pflichtlektüre</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Wissen teilen Box -->
+                <div
+                    class="bg-surface-light dark:bg-surface-dark rounded-2xl p-6 shadow-sm border border-gray-100 dark:border-gray-800 relative overflow-hidden group hover:border-primary/30 transition-colors">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="bg-orange-100 dark:bg-orange-900/20 p-2 rounded-xl text-primary">
+                                <span class="material-icons-outlined">share</span>
+                            </div>
+                            <h2 class="text-lg font-display font-bold text-gray-900 dark:text-white">Wissen teilen</h2>
+                        </div>
+                        <a href="wissen-teilen.html"
+                            class="text-sm font-medium text-primary hover:text-primary hover:underline transition-colors flex items-center gap-1">
+                            Öffnen <span class="material-icons-outlined text-sm">arrow_forward</span>
+                        </a>
+                    </div>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-0">
+                        Hast du hilfreiche Dokumente, Tipps oder Erfahrungen? Teile sie hier mit deinen neuen Kollegen!
+                    </p>
+                </div>
+
+                <!-- Feedback Section (moved from bottom) -->
+                <div class="mt-8">
+                    <div
+                        class="bg-gradient-to-br from-[#fcf7e6] to-[#f0e6c5] dark:from-[#3a2c22] dark:to-[#2c2018] rounded-2xl p-8 shadow-lg border border-orange-200 dark:border-orange-900/30 relative overflow-hidden">
+                        <div class="relative z-10">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="material-icons-outlined text-secondary text-2xl">rate_review</span>
+                                <h2 class="text-xl font-display font-bold text-secondary dark:text-orange-200">Wie
+                                    läuft's?
+                                </h2>
+                            </div>
+                            <p class="text-sm text-secondary/80 dark:text-orange-200/70 mb-5">Dein Feedback hilft uns,
+                                das
+                                Onboarding für zukünftige Kiwis zu verbessern.</p>
+                            <div class="flex items-center gap-3 mb-4 text-xs text-secondary/70 dark:text-orange-200/60">
+                                <span class="flex items-center gap-1"><span
+                                        class="material-icons-outlined text-sm">check_circle</span> 12 Feedbacks
+                                    erhalten</span>
+                                <span class="flex items-center gap-1"><span
+                                        class="material-icons-outlined text-sm">trending_up</span> 94% zufrieden</span>
+                            </div>
+                            <a href="feedback.html"
+                                class="w-full bg-secondary hover:bg-[#6d360f] text-white py-3 rounded-xl text-base font-semibold transition shadow-md block text-center flex items-center justify-center gap-2">
+                                <span class="material-icons-outlined">feedback</span>
+                                Feedback geben
+                            </a>
+                        </div>
+                        <div class="absolute -bottom-8 -right-8 text-[10rem] opacity-10 rotate-12 select-none">💬</div>
+                    </div>
+                </div>
+            </div>
+            <div class="space-y-8">
+                <!-- Chatbot Widget with L-shaped expand buttons -->
+                <div
+                    class="bg-surface-light dark:bg-surface-dark rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 overflow-hidden flex flex-col h-[400px] relative">
+
+                    <!-- L-shaped corner button - Top Right (rotated 180°) -->
+                    <a href="chatbot.html"
+                        class="corner-btn corner-top-right bg-primary/10 dark:bg-primary/20 rounded text-primary dark:text-orange-400 hover:bg-primary/20 dark:hover:bg-primary/30"
+                        title="Chat erweitern">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 10V4h-6" />
+                            <path d="M20 4L14 10" />
+                        </svg>
+                    </a>
+
+                    <div
+                        class="p-4 border-b border-gray-100 dark:border-gray-700 bg-gradient-to-r from-primary to-[#d4812f]">
+                        <div class="flex items-center gap-3">
+                            <div class="bg-white p-1.5 rounded-full shadow-sm">
+                                <span class="material-icons-outlined text-primary text-lg">smart_toy</span>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-white text-sm">KIWY Assistent</h3>
+                                <p class="text-xs text-orange-100">Frag mich alles über das Unternehmen</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-1 p-4 overflow-y-auto space-y-4 bg-gray-50 dark:bg-[#201815]">
+                        <div class="flex items-start gap-2 justify-end">
+                            <div
+                                class="bg-primary text-white p-3 rounded-tl-xl rounded-bl-xl rounded-br-xl shadow-sm text-sm">
+                                <p>Kannst du mir die Urlaubsregelung erklären?</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-2">
+                            <div class="bg-primary/10 dark:bg-primary/20 p-1.5 rounded-full flex-shrink-0">
+                                <span class="material-icons-outlined text-primary text-xs">smart_toy</span>
+                            </div>
+                            <div
+                                class="bg-white dark:bg-surface-dark border border-gray-100 dark:border-gray-700 p-3 rounded-tr-xl rounded-br-xl rounded-bl-xl shadow-sm text-sm text-gray-700 dark:text-gray-300">
+                                <p>Laut dem <strong>Mitarbeiterhandbuch 2026</strong>: Du sammelst 2,5 Tage pro Monat
+                                    (30 Tage/Jahr) in den ersten 2 Jahren an.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="p-3 bg-surface-light dark:bg-surface-dark border-t border-gray-100 dark:border-gray-700">
+                        <div class="relative">
+                            <input
+                                class="w-full pl-4 pr-10 py-2.5 rounded-lg border-gray-200 dark:border-gray-600 bg-white dark:bg-[#2A2520] text-sm focus:border-primary focus:ring-primary dark:text-white"
+                                placeholder="Stelle deine Frage..." type="text" />
+                            <button class="absolute right-2 top-2 text-primary hover:text-[#000093]">
+                                <span class="material-icons-outlined">send</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="bg-surface-light dark:bg-surface-dark rounded-2xl p-6 shadow-sm border border-gray-100 dark:border-gray-800">
+                    <h2 class="text-lg font-display font-bold text-gray-900 dark:text-white mb-4">Schnellzugriff</h2>
+                    <div class="grid grid-cols-2 gap-3">
+                        <a class="flex flex-col items-center justify-center p-4 rounded-xl bg-gray-50 dark:bg-[#2A2520] hover:bg-orange-50 dark:hover:bg-primary/20 hover:text-primary transition group border border-transparent hover:border-primary/20"
+                            href="team-verzeichnis.html">
+                            <span
+                                class="material-icons-outlined text-2xl mb-2 text-gray-500 dark:text-gray-400 group-hover:text-primary">people</span>
+                            <span class="text-xs font-medium text-center">Team-Verzeichnis</span>
+                        </a>
+                        <a class="flex flex-col items-center justify-center p-4 rounded-xl bg-gray-50 dark:bg-[#2A2520] hover:bg-orange-50 dark:hover:bg-primary/20 hover:text-primary transition group border border-transparent hover:border-primary/20"
+                            href="firmen-wiki.html">
+                            <span
+                                class="material-icons-outlined text-2xl mb-2 text-gray-500 dark:text-gray-400 group-hover:text-primary">business</span>
+                            <span class="text-xs font-medium text-center">Firmen-Wiki</span>
+                        </a>
+                        <a class="flex flex-col items-center justify-center p-4 rounded-xl bg-gray-50 dark:bg-[#2A2520] hover:bg-orange-50 dark:hover:bg-primary/20 hover:text-primary transition group border border-transparent hover:border-primary/20"
+                            href="it-support.html">
+                            <span
+                                class="material-icons-outlined text-2xl mb-2 text-gray-500 dark:text-gray-400 group-hover:text-primary">headset_mic</span>
+                            <span class="text-xs font-medium text-center">IT-Support</span>
+                        </a>
+                        <a class="flex flex-col items-center justify-center p-4 rounded-xl bg-gray-50 dark:bg-[#2A2520] hover:bg-orange-50 dark:hover:bg-primary/20 hover:text-primary transition group border border-transparent hover:border-primary/20"
+                            href="#">
+                            <span
+                                class="material-icons-outlined text-2xl mb-2 text-gray-500 dark:text-gray-400 group-hover:text-primary">event</span>
+                            <span class="text-xs font-medium text-center">Kalender</span>
+                        </a>
+                    </div>
+
+                    <!-- KI-Werkzeuge Sektion -->
+                    <h3
+                        class="text-sm font-display font-semibold text-gray-700 dark:text-gray-300 mt-5 mb-3 flex items-center gap-2">
+                        <span class="material-icons-outlined text-sm text-accent">auto_awesome</span>
+                        KI-Werkzeuge
+                    </h3>
+                    <div class="grid grid-cols-2 gap-3">
+                        <a class="flex flex-col items-center justify-center p-3 rounded-xl bg-gradient-to-br from-primary/5 to-accent/5 dark:from-primary/10 dark:to-accent/10 hover:from-primary/10 hover:to-accent/10 transition group border border-primary/10"
+                            href="chatbot.html">
+                            <span
+                                class="material-icons-outlined text-xl mb-1 text-primary dark:text-orange-400">smart_toy</span>
+                            <span class="text-xs font-medium text-center text-primary dark:text-orange-400">KIWY
+                                Chat</span>
+                        </a>
+                        <a class="flex flex-col items-center justify-center p-3 rounded-xl bg-gradient-to-br from-blue-500/5 to-purple-500/5 dark:from-blue-500/10 dark:to-purple-500/10 hover:from-blue-500/10 hover:to-purple-500/10 transition group border border-blue-500/10"
+                            href="#" target="_blank">
+                            <span
+                                class="material-icons-outlined text-xl mb-1 text-blue-600 dark:text-blue-400">psychology</span>
+                            <span class="text-xs font-medium text-center text-blue-600 dark:text-blue-400">Gemini</span>
+                        </a>
+                        <a class="flex flex-col items-center justify-center p-3 rounded-xl bg-gradient-to-br from-purple-500/5 to-pink-500/5 dark:from-purple-500/10 dark:to-pink-500/10 hover:from-purple-500/10 hover:to-pink-500/10 transition group border border-purple-500/10"
+                            href="#" target="_blank">
+                            <span
+                                class="material-icons-outlined text-xl mb-1 text-purple-600 dark:text-purple-400">image</span>
+                            <span
+                                class="text-xs font-medium text-center text-purple-600 dark:text-purple-400">Imagen</span>
+                        </a>
+                        <a class="flex flex-col items-center justify-center p-3 rounded-xl bg-gradient-to-br from-orange-500/5 to-red-500/5 dark:from-orange-500/10 dark:to-red-500/10 hover:from-orange-500/10 hover:to-red-500/10 transition group border border-orange-500/10"
+                            href="#" target="_blank">
+                            <span
+                                class="material-icons-outlined text-xl mb-1 text-orange-600 dark:text-orange-400">code</span>
+                            <span class="text-xs font-medium text-center text-orange-600 dark:text-orange-400">Code
+                                Assist</span>
+                        </a>
+
+                    </div>
+
+                    <!-- Wichtige Links -->
+                    <h3
+                        class="text-sm font-display font-semibold text-gray-700 dark:text-gray-300 mt-5 mb-3 flex items-center gap-2">
+                        <span class="material-icons-outlined text-sm text-secondary">link</span>
+                        Wichtige Links
+                    </h3>
+                    <div class="space-y-2">
+                        <a href="#"
+                            class="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-[#2A2520] transition text-sm text-gray-600 dark:text-gray-400 hover:text-primary">
+                            <span class="material-icons-outlined text-base">language</span>
+                            Firmen-Website
+                        </a>
+                        <a href="#"
+                            class="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-[#2A2520] transition text-sm text-gray-600 dark:text-gray-400 hover:text-primary">
+                            <span class="material-icons-outlined text-base">calendar_month</span>
+                            HR-Portal
+                        </a>
+                        <a href="#"
+                            class="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-[#2A2520] transition text-sm text-gray-600 dark:text-gray-400 hover:text-primary">
+                            <span class="material-icons-outlined text-base">forum</span>
+                            Slack Workspace
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <div id="main-footer"></div>
+
+</body>
+
+</html>

@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>KIWY - Team-Verzeichnis</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <script src="shared.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&amp;family=Poppins:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+    <style>
+        html {
+            overflow-y: scroll;
+            scrollbar-gutter: stable;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-gray-800 dark:text-gray-100 font-body transition-colors duration-300 min-h-screen flex flex-col">
+
+    <div id="assistant-bar"></div>
+    <div id="main-nav"></div>
+
+    <!-- Main Content -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Header -->
+        <header class="mb-8">
+            <h1 class="text-3xl font-display font-bold text-gray-900 dark:text-white">Team-Verzeichnis</h1>
+            <p class="mt-2 text-lg text-gray-600 dark:text-gray-300">Finde Kollegen, Teams und Ansprechpartner im
+                Unternehmen.</p>
+        </header>
+
+        <!-- Search & Filter -->
+        <div
+            class="mb-8 bg-surface-light dark:bg-surface-dark rounded-2xl p-6 shadow-sm border border-gray-100 dark:border-gray-800">
+            <div class="flex flex-col md:flex-row gap-4">
+                <div class="flex-1 relative">
+                    <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <span class="material-icons-outlined text-gray-400">search</span>
+                    </span>
+                    <input type="text" placeholder="Nach Namen, Rolle oder Abteilung suchen..."
+                        class="w-full pl-10 pr-4 py-3 border border-gray-200 dark:border-gray-700 rounded-xl bg-white dark:bg-[#2A2520] focus:ring-primary focus:border-primary dark:text-white text-sm" />
+                </div>
+                <div class="flex gap-3">
+                    <select
+                        class="px-4 py-3 border border-gray-200 dark:border-gray-700 rounded-xl bg-white dark:bg-[#2A2520] focus:ring-primary focus:border-primary dark:text-white text-sm">
+                        <option value="">Alle Abteilungen</option>
+                        <option value="design">Produktdesign</option>
+                        <option value="engineering">Engineering</option>
+                        <option value="marketing">Marketing</option>
+                        <option value="hr">Human Resources</option>
+                        <option value="it">IT & Support</option>
+                    </select>
+                    <select
+                        class="px-4 py-3 border border-gray-200 dark:border-gray-700 rounded-xl bg-white dark:bg-[#2A2520] focus:ring-primary focus:border-primary dark:text-white text-sm">
+                        <option value="">Alle Standorte</option>
+                        <option value="berlin">Berlin</option>
+                        <option value="munich">München</option>
+                        <option value="remote">Remote</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Team Stats -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+            <div
+                class="bg-surface-light dark:bg-surface-dark rounded-xl p-4 border border-gray-100 dark:border-gray-800 text-center">
+                <p class="text-3xl font-display font-bold text-primary dark:text-orange-400">48</p>
+                <p class="text-sm text-gray-500 dark:text-gray-400">Mitarbeiter</p>
+            </div>
+            <div
+                class="bg-surface-light dark:bg-surface-dark rounded-xl p-4 border border-gray-100 dark:border-gray-800 text-center">
+                <p class="text-3xl font-display font-bold text-primary dark:text-orange-400">6</p>
+                <p class="text-sm text-gray-500 dark:text-gray-400">Abteilungen</p>
+            </div>
+            <div
+                class="bg-surface-light dark:bg-surface-dark rounded-xl p-4 border border-gray-100 dark:border-gray-800 text-center">
+                <p class="text-3xl font-display font-bold text-primary dark:text-orange-400">3</p>
+                <p class="text-sm text-gray-500 dark:text-gray-400">Standorte</p>
+            </div>
+            <div
+                class="bg-surface-light dark:bg-surface-dark rounded-xl p-4 border border-gray-100 dark:border-gray-800 text-center">
+                <p class="text-3xl font-display font-bold text-accent">5</p>
+                <p class="text-sm text-gray-500 dark:text-gray-400">Neue Kiwis</p>
+            </div>
+        </div>
+
+        <!-- Department Sections -->
+        <div class="space-y-8">
+
+            <!-- Produktdesign -->
+            <section
+                class="bg-surface-light dark:bg-surface-dark rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 overflow-hidden">
+                <div
+                    class="px-6 py-4 border-b border-gray-100 dark:border-gray-700 bg-gradient-to-r from-primary/5 to-transparent flex justify-between items-center">
+                    <div class="flex items-center gap-3">
+                        <div
+                            class="w-10 h-10 rounded-lg bg-primary/10 dark:bg-primary/20 flex items-center justify-center">
+                            <span class="material-icons-outlined text-primary dark:text-orange-400">palette</span>
+                        </div>
+                        <div>
+                            <h2 class="font-display font-semibold text-gray-900 dark:text-white">Produktdesign</h2>
+                            <p class="text-xs text-gray-500">4 Mitglieder</p>
+                        </div>
+                    </div>
+                    <button class="text-sm text-primary dark:text-orange-400 font-medium hover:underline">Alle
+                        anzeigen</button>
+                </div>
+                <div class="p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <!-- Team Lead -->
+                    <div
+                        class="p-4 bg-gray-50 dark:bg-[#2A2520] rounded-xl border border-gray-100 dark:border-gray-700 hover:border-primary/30 transition-all group cursor-pointer">
+                        <div class="flex flex-col items-center text-center">
+                            <div class="relative mb-3">
+                                <img class="w-16 h-16 rounded-full object-cover ring-2 ring-primary/20"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvLUw1Q1FF8m82kBnas6QedJIpLPeILr-UA-muIVylyGzmnZxc0tGw4nPmPrmHffhw-wQANv68odnDU7C-loZEfUqFXnZsdnCrCiX4illDkpmSnMzaPYe4b80qjwVtXVweNNuRxkBk5gIqYyiSDWw1e_NG9SMNm5qIUmZcl9X9aZcgZaerzznHH1pJLuA4Bv-KybJ52-0OnjbajAqFVcT6J7t2jsrq9dXawgoE0j3tu_mgs44q0ypkkwUfmrAo1VEvWW5Q5YljUfPc"
+                                    alt="Sandra Hoffmann" />
+                                <span
+                                    class="absolute bottom-0 right-0 w-4 h-4 bg-orange-400 rounded-full ring-2 ring-white dark:ring-gray-800"></span>
+                            </div>
+                            <h3 class="font-semibold text-gray-900 dark:text-white text-sm">Sandra Hoffmann</h3>
+                            <p class="text-xs text-primary dark:text-orange-400 font-medium">Designleitung</p>
+                            <p class="text-xs text-gray-500 mt-1">Berlin</p>
+                            <div class="flex gap-2 mt-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                                <button
+                                    class="p-1.5 bg-primary/10 dark:bg-primary/20 rounded-lg text-primary dark:text-orange-400 hover:bg-primary/20">
+                                    <span class="material-icons-outlined text-sm">email</span>
+                                </button>
+                                <button
+                                    class="p-1.5 bg-primary/10 dark:bg-primary/20 rounded-lg text-primary dark:text-orange-400 hover:bg-primary/20">
+                                    <span class="material-icons-outlined text-sm">chat</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Senior UX -->
+                    <div
+                        class="p-4 bg-gray-50 dark:bg-[#2A2520] rounded-xl border border-gray-100 dark:border-gray-700 hover:border-primary/30 transition-all group cursor-pointer">
+                        <div class="flex flex-col items-center text-center">
+                            <div class="relative mb-3">
+                                <img class="w-16 h-16 rounded-full object-cover ring-2 ring-gray-200 dark:ring-gray-600"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_L57EPeiEraUzqSEt0bvP1plADsDGbImQklOWhDFT-wiAKLaKB0ARljyYZqTX23hdJaWAcs05NiJUCqLkHlqfH_jR8a34kZtpuqXCmLJhzZWTcIPoPoLYPPTxKk9Y4lnAmKpN8xW9chjjiSHkugECCnVyX_4pOikGfhsJKpWSrz7ThApZNr7rbz4uwPVr_5b0Yptz-paElHtLapo5fmeIWTMV1IU8vN5QwHDr7_gMbS8p6k7Lj9dgK-y2m0FgMZ9bkUbUCEkDgkT_"
+                                    alt="Markus Fischer" />
+                                <span
+                                    class="absolute bottom-0 right-0 w-4 h-4 bg-orange-400 rounded-full ring-2 ring-white dark:ring-gray-800"></span>
+                            </div>
+                            <h3 class="font-semibold text-gray-900 dark:text-white text-sm">Markus Fischer</h3>
+                            <p class="text-xs text-gray-600 dark:text-gray-400 font-medium">Senior UX Lead</p>
+                            <p class="text-xs text-gray-500 mt-1">Berlin</p>
+                            <div class="flex gap-2 mt-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                                <button
+                                    class="p-1.5 bg-primary/10 dark:bg-primary/20 rounded-lg text-primary dark:text-orange-400 hover:bg-primary/20">
+                                    <span class="material-icons-outlined text-sm">email</span>
+                                </button>
+                                <button
+                                    class="p-1.5 bg-primary/10 dark:bg-primary/20 rounded-lg text-primary dark:text-orange-400 hover:bg-primary/20">
+                                    <span class="material-icons-outlined text-sm">chat</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Current User - Highlighted -->
+                    <div
+                        class="p-4 bg-primary/10 dark:bg-primary/20 rounded-xl border-2 border-primary/50 group cursor-pointer">
+                        <div class="flex flex-col items-center text-center">
+                            <div class="relative mb-3">
+                                <img class="w-16 h-16 rounded-full object-cover ring-2 ring-primary"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWhnYueVnA9O2Kjjfo_KCm8NhT5u1HVR84doUsfVgiM2fN_2T47IboAYpOyb6d1FLOLyzw5VjUyynvAi45dqRFkXpC4BMxebBsyFg0SwuimE31SVh5kCvx_wKSjx_wOHmuLpRoWLnAFJqdRpB3BPGfyEf6NAX8D2GSXbJWb1AjDA4hEjDHCTJp0NjD7qg7kxYd913ZU87VKWi_udUA5ToABPtqONf7xqLrLw9bDclll2-abu5cf9LZnQdWJrz99IvotNsI2xiggYOS"
+                                    alt="Valerie Schneider" />
+                                <span
+                                    class="absolute bottom-0 right-0 w-4 h-4 bg-orange-400 rounded-full ring-2 ring-white dark:ring-gray-800"></span>
+                                <span
+                                    class="absolute -top-1 -right-1 bg-accent text-white text-[10px] px-1.5 py-0.5 rounded-full font-bold">DU</span>
+                            </div>
+                            <h3 class="font-semibold text-gray-900 dark:text-white text-sm">Valerie Schneider</h3>
+                            <p class="text-xs text-primary dark:text-orange-400 font-bold">Produktdesigner</p>
+                            <p class="text-xs text-gray-500 mt-1">Berlin • Neu 🥝</p>
+                        </div>
+                    </div>
+
+                    <!-- Senior UI -->
+                    <div
+                        class="p-4 bg-gray-50 dark:bg-[#2A2520] rounded-xl border border-gray-100 dark:border-gray-700 hover:border-primary/30 transition-all group cursor-pointer">
+                        <div class="flex flex-col items-center text-center">
+                            <div class="relative mb-3">
+                                <img class="w-16 h-16 rounded-full object-cover ring-2 ring-gray-200 dark:ring-gray-600"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxQ63_iUE9ylQKAiABRPSG2khH9d94GALRXTAPwJifw_43ZxsmmUmX-p0elfqK-bYBpJaQJ7WJH1RFu4-kt0zbfiDoIl8_7rZrm0zG6FG0keqSBGJ-xt5Qe-G5XjqFBl0Haj004ii99JD8zlyAP09BEL22CLJJOLUJMALqn2mzGHbwhqsF3mXZ4J7A6sOtBcFshVSVH11YMvmW2Jav1HqsTgzHGMRLRrg4D4Aa9CbIf7b8Pd20wcG2ZNFHJi0-dA9pa8sWr1Mu8gfg"
+                                    alt="Elena Bauer" />
+                                <span
+                                    class="absolute bottom-0 right-0 w-4 h-4 bg-gray-400 rounded-full ring-2 ring-white dark:ring-gray-800"></span>
+                            </div>
+                            <h3 class="font-semibold text-gray-900 dark:text-white text-sm">Elena Bauer</h3>
+                            <p class="text-xs text-gray-600 dark:text-gray-400 font-medium">Senior UI Lead</p>
+                            <p class="text-xs text-gray-500 mt-1">München</p>
+                            <div class="flex gap-2 mt-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                                <button
+                                    class="p-1.5 bg-primary/10 dark:bg-primary/20 rounded-lg text-primary dark:text-orange-400 hover:bg-primary/20">
+                                    <span class="material-icons-outlined text-sm">email</span>
+                                </button>
+                                <button
+                                    class="p-1.5 bg-primary/10 dark:bg-primary/20 rounded-lg text-primary dark:text-orange-400 hover:bg-primary/20">
+                                    <span class="material-icons-outlined text-sm">chat</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Engineering -->
+            <section
+                class="bg-surface-light dark:bg-surface-dark rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 overflow-hidden">
+                <div
+                    class="px-6 py-4 border-b border-gray-100 dark:border-gray-700 bg-gradient-to-r from-blue-500/5 to-transparent flex justify-between items-center">
+                    <div class="flex items-center gap-3">
+                        <div
+                            class="w-10 h-10 rounded-lg bg-blue-100 dark:bg-blue-900/20 flex items-center justify-center">
+                            <span class="material-icons-outlined text-blue-600 dark:text-blue-400">code</span>
+                        </div>
+                        <div>
+                            <h2 class="font-display font-semibold text-gray-900 dark:text-white">Engineering</h2>
+                            <p class="text-xs text-gray-500">12 Mitglieder</p>
+                        </div>
+                    </div>
+                    <button class="text-sm text-primary dark:text-orange-400 font-medium hover:underline">Alle
+                        anzeigen</button>
+                </div>
+                <div class="p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div
+                        class="p-4 bg-gray-50 dark:bg-[#2A2520] rounded-xl border border-gray-100 dark:border-gray-700 hover:border-primary/30 transition-all group cursor-pointer">
+                        <div class="flex flex-col items-center text-center">
+                            <div class="relative mb-3">
+                                <img class="w-16 h-16 rounded-full object-cover ring-2 ring-blue-200 dark:ring-blue-800"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuASZ07S92SK6NaKg6_J7ZRl2fOGy5Sl5FjK9R-_ryYKHlen1hVqiKP1Pr6f49UOmg8rrjoH9h-dnBhG_pBcY-_IIGlK1wkn6kWoO7Au9gI-65GoqPdQ9PG6wfQKyDWnuQODsHf3s0rap0RD8pZcKOxMKrbPBN9Yrd_1rafka0aW6Tyq5dmZSmFMcWd447iJe-TY17axY0R0Sud99hysitp2kNzgDrgHcpRpmFAcuPLwZxrZZ-fXQuq_6_Nw9S6xDdZqv9Ue7rLab2SY"
+                                    alt="Tom Schmidt" />
+                                <span
+                                    class="absolute bottom-0 right-0 w-4 h-4 bg-orange-400 rounded-full ring-2 ring-white dark:ring-gray-800"></span>
+                            </div>
+                            <h3 class="font-semibold text-gray-900 dark:text-white text-sm">Tom Schmidt</h3>
+                            <p class="text-xs text-blue-600 dark:text-blue-400 font-medium">CTO</p>
+                            <p class="text-xs text-gray-500 mt-1">Berlin</p>
+                            <div class="flex gap-2 mt-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                                <button
+                                    class="p-1.5 bg-blue-100 dark:bg-blue-900/20 rounded-lg text-blue-600 dark:text-blue-400 hover:bg-blue-200">
+                                    <span class="material-icons-outlined text-sm">email</span>
+                                </button>
+                                <button
+                                    class="p-1.5 bg-blue-100 dark:bg-blue-900/20 rounded-lg text-blue-600 dark:text-blue-400 hover:bg-blue-200">
+                                    <span class="material-icons-outlined text-sm">chat</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="p-4 bg-gray-50 dark:bg-[#2A2520] rounded-xl border border-gray-100 dark:border-gray-700 hover:border-primary/30 transition-all group cursor-pointer">
+                        <div class="flex flex-col items-center text-center">
+                            <div class="relative mb-3">
+                                <img class="w-16 h-16 rounded-full object-cover ring-2 ring-gray-200 dark:ring-gray-600"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDT0M4PegDdq13dpdYe3eaAPW_5hVvVfQXROgqHEpYOdYcqueHprcIXcQxrPuxReEBsVYn5ZUxSSbd8G-Wvn-K0wJkZ8WjUBpgCadcdDJCKJXEcCXaacfiYugnIeR9U5zD7tHpPo9DttcuABfyZdK6oBCJ2SopOU5j9lch4rBHhJm9OJfwR69NzipMeUPoMlapSABFIemHEaJNBWg5bDa92Nur0A8B4sB-iIpwMCzPlJfoO43VeRzuBE76i5okOvetRX_sdbk6JJtG"
+                                    alt="Lisa Weber" />
+                                <span
+                                    class="absolute bottom-0 right-0 w-4 h-4 bg-orange-400 rounded-full ring-2 ring-white dark:ring-gray-800"></span>
+                            </div>
+                            <h3 class="font-semibold text-gray-900 dark:text-white text-sm">Lisa Weber</h3>
+                            <p class="text-xs text-gray-600 dark:text-gray-400 font-medium">Backend Lead</p>
+                            <p class="text-xs text-gray-500 mt-1">Remote</p>
+                            <div class="flex gap-2 mt-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                                <button
+                                    class="p-1.5 bg-primary/10 dark:bg-primary/20 rounded-lg text-primary dark:text-orange-400 hover:bg-primary/20">
+                                    <span class="material-icons-outlined text-sm">email</span>
+                                </button>
+                                <button
+                                    class="p-1.5 bg-primary/10 dark:bg-primary/20 rounded-lg text-primary dark:text-orange-400 hover:bg-primary/20">
+                                    <span class="material-icons-outlined text-sm">chat</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="col-span-2 flex items-center justify-center p-6 bg-gray-50 dark:bg-[#2A2520] rounded-xl border border-dashed border-gray-300 dark:border-gray-600">
+                        <button
+                            class="text-sm text-gray-500 dark:text-gray-400 hover:text-primary flex items-center gap-2">
+                            <span class="material-icons-outlined">add_circle_outline</span>
+                            10 weitere Teammitglieder anzeigen
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- IT & Support -->
+            <section
+                class="bg-surface-light dark:bg-surface-dark rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 overflow-hidden">
+                <div
+                    class="px-6 py-4 border-b border-gray-100 dark:border-gray-700 bg-gradient-to-r from-orange-500/5 to-transparent flex justify-between items-center">
+                    <div class="flex items-center gap-3">
+                        <div
+                            class="w-10 h-10 rounded-lg bg-orange-100 dark:bg-orange-900/20 flex items-center justify-center">
+                            <span
+                                class="material-icons-outlined text-orange-600 dark:text-orange-400">support_agent</span>
+                        </div>
+                        <div>
+                            <h2 class="font-display font-semibold text-gray-900 dark:text-white">IT & Support</h2>
+                            <p class="text-xs text-gray-500">5 Mitglieder • <span
+                                    class="text-orange-400">Verfügbar</span></p>
+                        </div>
+                    </div>
+                    <a href="it-support.html"
+                        class="text-sm bg-orange-100 dark:bg-orange-900/20 text-orange-600 dark:text-orange-400 px-3 py-1.5 rounded-lg font-medium hover:bg-orange-200 dark:hover:bg-orange-900/30 transition-colors flex items-center gap-1">
+                        <span class="material-icons-outlined text-sm">headset_mic</span>
+                        Support kontaktieren
+                    </a>
+                </div>
+                <div class="p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div
+                        class="p-4 bg-gray-50 dark:bg-[#2A2520] rounded-xl border border-gray-100 dark:border-gray-700 hover:border-primary/30 transition-all group cursor-pointer">
+                        <div class="flex flex-col items-center text-center">
+                            <div class="relative mb-3">
+                                <img class="w-16 h-16 rounded-full object-cover ring-2 ring-orange-200 dark:ring-orange-800"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuASZ07S92SK6NaKg6_J7ZRl2fOGy5Sl5FjK9R-_ryYKHlen1hVqiKP1Pr6f49UOmg8rrjoH9h-dnBhG_pBcY-_IIGlK1wkn6kWoO7Au9gI-65GoqPdQ9PG6wfQKyDWnuQODsHf3s0rap0RD8pZcKOxMKrbPBN9Yrd_1rafka0aW6Tyq5dmZSmFMcWd447iJe-TY17axY0R0Sud99hysitp2kNzgDrgHcpRpmFAcuPLwZxrZZ-fXQuq_6_Nw9S6xDdZqv9Ue7rLab2SY"
+                                    alt="Max Müller" />
+                                <span
+                                    class="absolute bottom-0 right-0 w-4 h-4 bg-orange-400 rounded-full ring-2 ring-white dark:ring-gray-800"></span>
+                            </div>
+                            <h3 class="font-semibold text-gray-900 dark:text-white text-sm">Max Müller</h3>
+                            <p class="text-xs text-orange-600 dark:text-orange-400 font-medium">IT-Leitung</p>
+                            <p class="text-xs text-gray-500 mt-1">Berlin</p>
+                        </div>
+                    </div>
+                    <div
+                        class="p-4 bg-gray-50 dark:bg-[#2A2520] rounded-xl border border-gray-100 dark:border-gray-700 hover:border-primary/30 transition-all group cursor-pointer">
+                        <div class="flex flex-col items-center text-center">
+                            <div class="relative mb-3">
+                                <img class="w-16 h-16 rounded-full object-cover ring-2 ring-gray-200 dark:ring-gray-600"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDT0M4PegDdq13dpdYe3eaAPW_5hVvVfQXROgqHEpYOdYcqueHprcIXcQxrPuxReEBsVYn5ZUxSSbd8G-Wvn-K0wJkZ8WjUBpgCadcdDJCKJXEcCXaacfiYugnIeR9U5zD7tHpPo9DttcuABfyZdK6oBCJ2SopOU5j9lch4rBHhJm9OJfwR69NzipMeUPoMlapSABFIemHEaJNBWg5bDa92Nur0A8B4sB-iIpwMCzPlJfoO43VeRzuBE76i5okOvetRX_sdbk6JJtG"
+                                    alt="Jana Klein" />
+                                <span
+                                    class="absolute bottom-0 right-0 w-4 h-4 bg-orange-400 rounded-full ring-2 ring-white dark:ring-gray-800"></span>
+                            </div>
+                            <h3 class="font-semibold text-gray-900 dark:text-white text-sm">Jana Klein</h3>
+                            <p class="text-xs text-gray-600 dark:text-gray-400 font-medium">Support Specialist</p>
+                            <p class="text-xs text-gray-500 mt-1">Berlin</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <div id="main-footer"></div>
+
+</body>
+
+</html>
